@@ -55,14 +55,11 @@ pieChartType = 'pie';
   }
 
   loadQuestions(index) {
-    console.log('Index:::', index);
-    console.log('questions', this.questions);
     this.currentIndex = index;
     this.showErrorMessage = false;
   }
 
   finishTest() {
-    console.log('count down', this.counter);
     this.counter.restart();
   }
 
@@ -91,9 +88,6 @@ pieChartType = 'pie';
       }
     });
     this.pieChartData = [correctAnswers, this.questions.length - correctAnswers];
-
-    console.log('Questions', this.questions);
-    console.log('totalMarks', totalMarks);
   }
 
 }
