@@ -4,8 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 // Timer Module
 import { CountdownModule } from 'ngx-countdown';
-
-
+import { ChartsModule } from 'ng2-charts';
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -24,7 +23,8 @@ import { AppRoutingModule } from './/app-routing.module';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    CountdownModule
+    CountdownModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

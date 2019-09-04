@@ -1,6 +1,6 @@
 .quiz-container{
     text-align: center;
-    padding-top: 100px;
+    padding-top: 50px;
     .quiz-header-text {
         padding-bottom: 30px;
     }
@@ -11,17 +11,24 @@
         background: white;
         box-shadow: 10px 10px 5px #aaaaaa;
         .timer-section {
-            display:flex;
             text-align: end;
             font-size: 20px;
-            justify-content: space-between;
-            .skip-button {
-                width: 100px;
-                border-radius: 0px;
-            }
             #icon-timer {
                 padding-right: 10px;
                 font-size: 18px;
+            }
+        }
+        .submit-skip-buttons{ 
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            .skip-button {
+            width: 100px;
+            border-radius: 0px;
+            }
+            .submit-button {
+                width: 150px;
+                border-radius: 0px;
             }
         }
         .question {
@@ -49,6 +56,21 @@
             .next-button{
                 width: 100px;
                 border-radius: 0px;
+            }
+        }
+    }
+    .error-msg{
+        color: red;
+        font-size: 14px;
+    }
+    .result-wrapper {
+        .product-chart{
+            width: 50%;
+            margin: auto;
+            padding: 30px;
+            // background: #f7f7f7;
+            @media (min-width: 768px) and ( max-width: 1023px ){
+                width: 80%;
             }
         }
     }

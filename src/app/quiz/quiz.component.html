@@ -1,22 +1,37 @@
 <div class="quiz-container">
   <h3 class="quiz-header-text">Drawin's Quiz</h3>
   <div class="quiz-wrapper">
-    <div class="timer-section">
+    <div *ngIf="pieChartData?.length === 0">
+      <div class="timer-section">
+        <span class="glyphicon glyphicon-time" id="icon-timer"></span>
+        <countdown #countdown [config]="{leftTime: 180}" (finished)="finishTest()">$!m!:$!s!</countdown>
+      </div>
+      <div class="submit-skip-buttons">
         <button class="btn btn-primary skip-button" [disabled]="currentIndex === questions?.length - 1" (click)="loadQuestions(currentIndex+1)">SKIP</button>
-        <!-- <span class="glyphicon glyphicon-time" id="icon-timer"></span> -->
-        <countdown #countdown  [config]="{leftTime: 180}" (finished)="finishTest()">$!m!:$!s!</countdown>
-    </div>
-    <div class="question">Question {{currentIndex + 1}}: {{questions[currentIndex]?.question}}</div>
-    <div class="options-wrapper">
-      <div class="options" *ngFor="let option of questions[currentIndex].options">
-        <input type="radio" name="optradio" [(ngModel)]="questions[currentIndex].selectedAnswer"
-        [value]="option">
-        <label class="option-text">{{option}}</label>
+        <button class="btn btn-primary submit-button" *ngIf="currentIndex === questions?.length - 1" (click)="submitTest()">SUBMIT TEST</button>
+      </div>
+      <div>
+        <span *ngIf="showErrorMessage" class="error-msg">All the questions are Mandatory. Please select the answers</span>
+      </div>
+      <div class="question">Question {{currentIndex + 1}}: {{questions[currentIndex]?.question}}</div>
+      <div class="options-wrapper">
+        <div class="options" *ngFor="let option of questions[currentIndex].options">
+          <input type="radio" name="optradio" [(ngModel)]="questions[currentIndex].selectedAnswer" [value]="option">
+          <label class="option-text">{{option}}</label>
+        </div>
+      </div>
+      <div class="buttons-container">
+        <button [disabled]="currentIndex === 0" class="btn btn-primary previous-button" (click)="loadQuestions(currentIndex-1)">Previous</button>
+        <button [disabled]="currentIndex === questions?.length - 1" class="btn btn-primary next-button" (click)="loadQuestions(currentIndex+1)">Next</button>
       </div>
     </div>
-    <div class="buttons-container">
-      <button [disabled]="currentIndex === 0" class="btn btn-primary previous-button" (click)="loadQuestions(currentIndex-1)">Previous</button>
-      <button [disabled]="currentIndex === questions?.length - 1" class="btn btn-primary next-button" (click)="loadQuestions(currentIndex+1)">Next</button>
+    <div class="result-wrapper" *ngIf="pieChartData?.length > 0">
+      <b>Points Scored</b>
+      <div class="product-chart chart">
+        <div style="display: block">
+          <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"></canvas>
+        </div>
+      </div>
     </div>
   </div>
 </div>
