@@ -7,8 +7,16 @@
     padding: 20px;
     background: white;
     box-shadow: 10px 10px 5px #aaaaaa;
+
+    @media(max-width: 768px){
+        width:90%;
+    }
      label {
         float: left;
      }
+ }
+ .btn-primary{
+     border-radius: 0px;
+     padding: 5px 20px 5px 20px;
  }
 }

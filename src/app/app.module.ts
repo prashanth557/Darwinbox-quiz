@@ -5,6 +5,10 @@ import { RouterModule } from '@angular/router';
 // Timer Module
 import { CountdownModule } from 'ngx-countdown';
 import { ChartsModule } from 'ng2-charts';
+// Services
+import { CookieService } from 'ng2-cookies';
+import { AuthService} from './services/auth.service';
+import { AuthGuard } from './services/auth-guard.service';
 // Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -26,7 +30,7 @@ import { AppRoutingModule } from './/app-routing.module';
     CountdownModule,
     ChartsModule
   ],
-  providers: [],
+  providers: [CookieService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

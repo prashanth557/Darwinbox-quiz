@@ -2,8 +2,8 @@
     <form class="user-detail-form">
         <div class="form-group">
           <label for="name">Please Enter Name to Continue</label>
-          <input type="email" class="form-control" id="name"  [(ngModel)]="name" placeholder="Enter name" required>
+          <input type="email" class="form-control" id="name"  [ngModelOptions]="{standalone: true}" [(ngModel)]="name" placeholder="Enter name" required>
         </div>
-        <button type="submit" class="btn btn-primary" (click)="loginForm()">Submit</button>
+        <button type="submit" class="btn btn-primary" (click)="loginForm()" [disabled]="!name">Submit</button>
     </form>
 </div>

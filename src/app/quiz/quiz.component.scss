@@ -11,11 +11,14 @@
         background: white;
         box-shadow: 10px 10px 5px #aaaaaa;
         .timer-section {
-            text-align: end;
             font-size: 20px;
             #icon-timer {
                 padding-right: 10px;
-                font-size: 18px;
+                font-size: 25px;
+                float: right;
+            }
+            .countdown-section{
+                float:right;
             }
         }
         .submit-skip-buttons{ 
@@ -41,13 +44,27 @@
             display: block;
             margin: 20px 20px 15px 20px;
             text-align: left;
+            .option-flex{
+                display:inline-flex;
+                padding-bottom: 10px;
+            }
            .option-text {
              padding-left:20px;
              font-weight: normal;
+            //  display: list-item;
+             list-style-type: lower-alpha;
+             /* padding-left: 20px; */
+             list-style-position: inside;
+           }
+           .option-text:before {
+               content: ")";
+               padding-right: 10px;
            }
         }
         .buttons-container{
             margin:30px;
+            display: flex;
+            justify-content: center;
             .previous-button{
                 width: 100px;
                 border-radius: 0px;
@@ -64,6 +81,16 @@
         font-size: 14px;
     }
     .result-wrapper {
+        padding-top: 10px;
+        a{
+            float: right;
+            font-size: 16px;
+            color: #0ac;
+            text-decoration: underline;
+        }
+        .result-text{
+            font-size: 18px;
+        }
         .product-chart{
             width: 50%;
             margin: auto;
